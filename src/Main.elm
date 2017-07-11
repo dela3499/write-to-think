@@ -1,4 +1,4 @@
-module Main exposing (..)
+port module Main exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -13,27 +13,43 @@ import Html.Keyed as Keyed
 
 
 main =
-    Html.program
-        { init = ( initModel, Task.perform Tick Time.now )
+    Html.programWithFlags
+        { init = init
         , view = view
         , update = update
-        , subscriptions = \x -> Time.every (Time.second / 4) Tick
+        , subscriptions = subscriptions
         }
 
 
-initModel =
-    { dark = True
-    , promptState = AllTitles
-    , text = ""
-    , time = Nothing
-    , alarm = Nothing
-    }
+port setLocalStorage : String -> Cmd msg
+
+
+port setText : (String -> msg) -> Sub msg
+
+
+subscriptions model =
+    Sub.batch
+        [ Time.every (Time.second / 4) Tick
+        , setText SetTextFromStorage
+        ]
+
+
+init string =
+    ( { dark = True
+      , promptState = AllTitles
+      , text = string
+      , time = Nothing
+      , alarm = Nothing
+      }
+    , Task.perform Tick Time.now
+    )
 
 
 type Msg
     = ToggleTheme
     | SetPrompt PromptState
     | SetText String
+    | SetTextFromStorage String
     | SetAlarm (Maybe Time)
     | Tick Time
     | NoMsg
@@ -54,6 +70,9 @@ update msg model =
             ( { model | promptState = promptState }, Cmd.none )
 
         SetText string ->
+            ( { model | text = string }, setLocalStorage string )
+
+        SetTextFromStorage string ->
             ( { model | text = string }, Cmd.none )
 
         SetAlarm alarm ->
@@ -239,6 +258,7 @@ viewInput model =
                 , defaultValue model.text
                 , onInput SetText
                 , maxlength 5000
+                , id "textarea"
                 ]
                 []
             , charCount model

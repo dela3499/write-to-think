@@ -8799,6 +8799,11 @@ var _user$project$Main$container = function (x) {
 			_1: {ctor: '[]'}
 		});
 };
+var _user$project$Main$setLocalStorage = _elm_lang$core$Native_Platform.outgoingPort(
+	'setLocalStorage',
+	function (v) {
+		return v;
+	});
 var _user$project$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
@@ -8820,6 +8825,15 @@ var _user$project$Main$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'SetText':
+				var _p1 = _p0._0;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{text: _p1}),
+					_1: _user$project$Main$setLocalStorage(_p1)
+				};
+			case 'SetTextFromStorage':
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -8849,6 +8863,7 @@ var _user$project$Main$update = F2(
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
+var _user$project$Main$setText = _elm_lang$core$Native_Platform.incomingPort('setText', _elm_lang$core$Json_Decode$string);
 var _user$project$Main$NoMsg = {ctor: 'NoMsg'};
 var _user$project$Main$Tick = function (a) {
 	return {ctor: 'Tick', _0: a};
@@ -8857,9 +8872,9 @@ var _user$project$Main$SetAlarm = function (a) {
 	return {ctor: 'SetAlarm', _0: a};
 };
 var _user$project$Main$timerPopup = function (model) {
-	var _p1 = {ctor: '_Tuple2', _0: model.time, _1: model.alarm};
-	if (((_p1.ctor === '_Tuple2') && (_p1._0.ctor === 'Just')) && (_p1._1.ctor === 'Just')) {
-		return (_elm_lang$core$Native_Utils.cmp(_p1._0._0, _p1._1._0) > 0) ? A2(
+	var _p2 = {ctor: '_Tuple2', _0: model.time, _1: model.alarm};
+	if (((_p2.ctor === '_Tuple2') && (_p2._0.ctor === 'Just')) && (_p2._1.ctor === 'Just')) {
+		return (_elm_lang$core$Native_Utils.cmp(_p2._0._0, _p2._1._0) > 0) ? A2(
 			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
@@ -8912,6 +8927,21 @@ var _user$project$Main$timerPopup = function (model) {
 			{ctor: '[]'});
 	}
 };
+var _user$project$Main$SetTextFromStorage = function (a) {
+	return {ctor: 'SetTextFromStorage', _0: a};
+};
+var _user$project$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		{
+			ctor: '::',
+			_0: A2(_elm_lang$core$Time$every, _elm_lang$core$Time$second / 4, _user$project$Main$Tick),
+			_1: {
+				ctor: '::',
+				_0: _user$project$Main$setText(_user$project$Main$SetTextFromStorage),
+				_1: {ctor: '[]'}
+			}
+		});
+};
 var _user$project$Main$SetText = function (a) {
 	return {ctor: 'SetText', _0: a};
 };
@@ -8948,7 +8978,11 @@ var _user$project$Main$viewInput = function (model) {
 									_1: {
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$maxlength(5000),
-										_1: {ctor: '[]'}
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$id('textarea'),
+											_1: {ctor: '[]'}
+										}
 									}
 								}
 							}
@@ -8970,10 +9004,10 @@ var _user$project$Main$ToggleTheme = {ctor: 'ToggleTheme'};
 var _user$project$Main$viewHeader = function (model) {
 	var viewTimer = function (nMinutes) {
 		var msg = function () {
-			var _p2 = model.time;
-			if (_p2.ctor === 'Just') {
+			var _p3 = model.time;
+			if (_p3.ctor === 'Just') {
 				return _user$project$Main$SetAlarm(
-					_elm_lang$core$Maybe$Just(_p2._0 + (60000 * nMinutes)));
+					_elm_lang$core$Maybe$Just(_p3._0 + (60000 * nMinutes)));
 			} else {
 				return _user$project$Main$NoMsg;
 			}
@@ -8997,12 +9031,12 @@ var _user$project$Main$viewHeader = function (model) {
 			});
 	};
 	var timerSection = function () {
-		var _p3 = {ctor: '_Tuple2', _0: model.time, _1: model.alarm};
+		var _p4 = {ctor: '_Tuple2', _0: model.time, _1: model.alarm};
 		_v3_3:
 		do {
-			if (_p3.ctor === '_Tuple2') {
-				if (_p3._0.ctor === 'Nothing') {
-					if (_p3._1.ctor === 'Nothing') {
+			if (_p4.ctor === '_Tuple2') {
+				if (_p4._0.ctor === 'Nothing') {
+					if (_p4._1.ctor === 'Nothing') {
 						return A2(
 							_elm_lang$html$Html$div,
 							{ctor: '[]'},
@@ -9011,7 +9045,7 @@ var _user$project$Main$viewHeader = function (model) {
 						break _v3_3;
 					}
 				} else {
-					if (_p3._1.ctor === 'Nothing') {
+					if (_p4._1.ctor === 'Nothing') {
 						return A2(
 							_elm_lang$html$Html$span,
 							{
@@ -9044,7 +9078,7 @@ var _user$project$Main$viewHeader = function (model) {
 								ctor: '::',
 								_0: _elm_lang$html$Html$text(
 									_user$project$Main$formatMilliseconds(
-										A2(_elm_lang$core$Basics$max, 0, _p3._1._0 - _p3._0._0))),
+										A2(_elm_lang$core$Basics$max, 0, _p4._1._0 - _p4._0._0))),
 								_1: {
 									ctor: '::',
 									_0: A2(
@@ -9147,14 +9181,20 @@ var _user$project$Main$viewHeader = function (model) {
 };
 var _user$project$Main$Maximized = {ctor: 'Maximized'};
 var _user$project$Main$AllTitles = {ctor: 'AllTitles'};
-var _user$project$Main$initModel = {dark: true, promptState: _user$project$Main$AllTitles, text: '', time: _elm_lang$core$Maybe$Nothing, alarm: _elm_lang$core$Maybe$Nothing};
+var _user$project$Main$init = function (string) {
+	return {
+		ctor: '_Tuple2',
+		_0: {dark: true, promptState: _user$project$Main$AllTitles, text: string, time: _elm_lang$core$Maybe$Nothing, alarm: _elm_lang$core$Maybe$Nothing},
+		_1: A2(_elm_lang$core$Task$perform, _user$project$Main$Tick, _elm_lang$core$Time$now)
+	};
+};
 var _user$project$Main$Prompt = function (a) {
 	return {ctor: 'Prompt', _0: a};
 };
 var _user$project$Main$prompts = function (model) {
 	var viewPromptRow = F2(
-		function (i, _p4) {
-			var _p5 = _p4;
+		function (i, _p5) {
+			var _p6 = _p5;
 			return A2(
 				_elm_lang$html$Html$tr,
 				{
@@ -9171,7 +9211,7 @@ var _user$project$Main$prompts = function (model) {
 						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text(_p5._0),
+							_0: _elm_lang$html$Html$text(_p6._0),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
@@ -9181,7 +9221,7 @@ var _user$project$Main$prompts = function (model) {
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text(_p5._1),
+								_0: _elm_lang$html$Html$text(_p6._1),
 								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}
@@ -9230,15 +9270,15 @@ var _user$project$Main$prompts = function (model) {
 			_1: {ctor: '[]'}
 		});
 	var viewPrompt = function (index) {
-		var _p6 = A2(
+		var _p7 = A2(
 			_elm_lang$core$Maybe$withDefault,
 			{ctor: '_Tuple2', _0: '', _1: ''},
 			A2(
 				_elm_lang$core$Array$get,
 				index,
 				_elm_lang$core$Array$fromList(_user$project$Main$promptInfo)));
-		var promptTitle = _p6._0;
-		var description = _p6._1;
+		var promptTitle = _p7._0;
+		var description = _p7._1;
 		return {
 			ctor: '::',
 			_0: backButton,
@@ -9273,8 +9313,8 @@ var _user$project$Main$prompts = function (model) {
 		}
 	};
 	var viewPromptTitle = F2(
-		function (i, _p7) {
-			var _p8 = _p7;
+		function (i, _p8) {
+			var _p9 = _p8;
 			return A2(
 				_elm_lang$html$Html$div,
 				{
@@ -9282,7 +9322,7 @@ var _user$project$Main$prompts = function (model) {
 					_0: _elm_lang$html$Html_Attributes$class('prompt'),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$title(_p8._1),
+						_0: _elm_lang$html$Html_Attributes$title(_p9._1),
 						_1: {
 							ctor: '::',
 							_0: _elm_lang$html$Html_Events$onClick(
@@ -9294,7 +9334,7 @@ var _user$project$Main$prompts = function (model) {
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text(_p8._0),
+					_0: _elm_lang$html$Html$text(_p9._0),
 					_1: {ctor: '[]'}
 				});
 		});
@@ -9307,12 +9347,12 @@ var _user$project$Main$prompts = function (model) {
 			_1: {ctor: '[]'}
 		});
 	var content = function () {
-		var _p9 = model.promptState;
-		switch (_p9.ctor) {
+		var _p10 = model.promptState;
+		switch (_p10.ctor) {
 			case 'AllTitles':
 				return allTitles;
 			case 'Prompt':
-				return viewPrompt(_p9._0);
+				return viewPrompt(_p10._0);
 			default:
 				return maximized;
 		}
@@ -9384,19 +9424,8 @@ var _user$project$Main$view = function (model) {
 			}
 		});
 };
-var _user$project$Main$main = _elm_lang$html$Html$program(
-	{
-		init: {
-			ctor: '_Tuple2',
-			_0: _user$project$Main$initModel,
-			_1: A2(_elm_lang$core$Task$perform, _user$project$Main$Tick, _elm_lang$core$Time$now)
-		},
-		view: _user$project$Main$view,
-		update: _user$project$Main$update,
-		subscriptions: function (x) {
-			return A2(_elm_lang$core$Time$every, _elm_lang$core$Time$second / 4, _user$project$Main$Tick);
-		}
-	})();
+var _user$project$Main$main = _elm_lang$html$Html$programWithFlags(
+	{init: _user$project$Main$init, view: _user$project$Main$view, update: _user$project$Main$update, subscriptions: _user$project$Main$subscriptions})(_elm_lang$core$Json_Decode$string);
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};

@@ -16,8 +16,37 @@
 
   <body>      
 		<script>
+
+      function readLocalStorage() {
+        var local = localStorage.getItem('write-to-think')
+        if (local) {
+          return local;
+        } else {
+          return ""
+        }
+      }
+
   		// Embed Elm app
-      var app = Elm.Main.fullscreen();
+      var app = Elm.Main.fullscreen(readLocalStorage());
+
+      // Set focus
+      setTimeout(function () {
+        document.getElementById("textarea").focus();
+      }, 100)
+
+      // Save on change
+      app.ports.setLocalStorage.subscribe(function(model) {
+        localStorage.setItem("write-to-think", model)
+      })
+
+      // Update on localstorage change
+      window.addEventListener("storage", function (e) {
+        if (e.key == "write-to-think") {
+          app.ports.setText.send(e.newValue)
+        }
+      })
+
+
 		</script>
 	</body>
 
