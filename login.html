@@ -1,0 +1,92 @@
+<html>
+
+	<head>
+    <title>simple working memory</title>
+		<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="css/style.css"></link>
+    <link rel="stylesheet" href="css/home.css"></link>
+    <link rel="stylesheet" href="css/animate.css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  </head>     
+
+  <body>
+    <div id="homepage">
+      <div class="container">
+        <h1>simple working memory</h1>
+        
+        <div id="tagline">
+          <h2>a simple way to manage the day-to-day</h2>
+          <div id="login-button">log in</div>
+        </div>
+        <div id="sign-up-container">
+          <input id="email-input" placeholder="email">
+          <input type="password" id="password-input" placeholder="password">
+          <input type="password" id="password-check-input" placeholder="password (again)">
+          <div id="sign-up-button">sign up</div>
+          <div id="error"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+
+  <script type="text/javascript">
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCR0rYzy6v61nkw4xzlLnbHHutWc_kgOIY",
+      authDomain: "my-first-auth-c8ebe.firebaseapp.com",
+      databaseURL: "https://my-first-auth-c8ebe.firebaseio.com",
+      projectId: "my-first-auth-c8ebe",
+      storageBucket: "my-first-auth-c8ebe.appspot.com",
+      messagingSenderId: "881643621473"
+    };
+    firebase.initializeApp(config);  
+
+    function showError(text) {
+      document.getElementById("error").innerHTML = text;
+    }
+
+    function clearError() {
+      showError("")
+    }
+
+    // error messages
+    // errorMessages = {
+    //   "auth/email-already-in-use": ""
+
+
+
+    // Handle sign up
+    var signup = document.getElementById("sign-up-button")
+
+    signup.onclick = function () {
+      var email = document.getElementById("email-input").value
+      var password = document.getElementById("password-input").value
+      var passwordCheck = document.getElementById("password-check-input").value
+
+      if (password == passwordCheck) {
+        
+        clearError();
+        
+        firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // console.log(errorCode + "\n" + errorMessage)
+          // showError(errorCode + "\n" + errorMessage)
+          showError(errorMessage)
+
+        }); 
+        
+
+      } else {
+        showError("passwords do not match")
+      }
+    };
+  </script>
+	
+
+</html>

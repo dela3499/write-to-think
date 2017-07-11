@@ -1,0 +1,255 @@
+body {
+	margin: 0;
+	background: rgb(51,51,51);
+}
+
+.container {
+	max-width: 850px;
+	margin: 0 auto;
+	padding: 20px;
+	overflow-y: auto;
+}
+
+#app {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	font-family: Roboto;
+	font-family: Open Sans;
+	font-weight: 400;
+	font-size: 25px;
+	color: rgba(0,0,0,0.5);	
+}
+
+#header {
+	background: white;
+	box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+	z-index: 2;
+}
+
+#prompts {
+	background: #e6e6e6;
+	z-index: 1;
+	box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.2);
+	font-size: 0.7em;
+	font-weight: 400;
+}
+
+
+#input {
+	background: rgb(240,240,240);
+	flex: 1 1 auto;
+	box-sizing: border-box;
+	display: flex;
+}
+
+
+.site-title {
+	font-weight: bold;
+	opacity: 0.7;
+	float: left;
+}
+
+.float-right {
+	float: right;
+	margin-top: 5px;
+}
+
+#header .item {
+	font-size: 0.8em;
+	cursor: pointer;
+	user-select: none;
+	margin-left: 10px;
+}
+
+.timer-section {
+	margin-right: 20px;
+}
+
+.prompt {
+	float: left;
+	padding-right: 15px;
+	opacity: 0.7;
+	cursor: pointer;
+	user-select: none;
+}
+
+.prompt:hover {
+	opacity: 1;
+}
+
+td:hover {
+	opacity: 1;	
+}
+
+.back-button {
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+.prompt-description {
+	opacity: 0.7;
+}
+
+#input .container {
+	display: flex;
+	flex: 1;
+	position: relative;
+	overflow-y: scroll;
+	padding-right: 0;
+	padding-left: 0;
+	/*margin-right: 0;*/
+	/*overflow: auto;*/
+}
+
+textarea {
+	background: none;
+	outline: none;
+	border: none;
+	resize: none;
+	width: 100%;
+	font-size: 0.8em;
+	font-family: Open Sans;
+	color: inherit;
+	font-weight: 400;
+	line-height: 1.4em;
+	padding-right: 20px;
+	padding-bottom: 100px;
+	padding-left: 0;
+	box-sizing: border-box;
+	overflow-y:scroll;
+}
+
+.dark textarea {
+	color: rgb(165, 165, 165);
+}
+
+.expand-button {
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	padding: 0;
+}
+
+.dark .expand-button {
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.back-button {
+	float: left;
+	padding-top: 7px;
+	opacity: 0.7;
+}
+
+table {
+	width: 700px;
+	float: left;
+	color: inherit;
+	font-family: inherit;
+	font-weight: inherit;
+	font-size: inherit;
+	opacity: inherit;
+}
+
+table td {
+	padding-bottom: 10px;
+	opacity: 0.7;
+	cursor: pointer;
+	/*padding: 0;*/
+}
+
+table td:first-of-type {
+	padding-right: 10px;
+	opacity: 0.9;
+	width: 100px;
+	text-align: right;
+}
+
+.popup {
+	position: absolute;
+	width: 200px;
+	background: #4d4d4d;
+	left: 50%;
+	top: 40%;
+	z-index: 3;
+	transform: translate(-50%,-50%);
+	font-size: 20px;
+	text-align: center;
+	padding: 10px;
+	box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.4);
+}
+
+.popup-text {
+	font-size: 20px;
+	padding: 20px;
+	color: rgba(255,255,255,0.6);
+
+}
+
+.popup-close-button {
+	padding: 10px;
+	border: 2px solid #333333;
+	width: 100px;
+	margin: 0 auto;
+	margin-bottom: 20;
+	background: #333333;
+	color: rgba(255,255,255,0.6);
+	border: 2px solid #4d4d4d;
+}
+
+.popup-close-button:hover {
+	border: 2px solid rgba(255,255,255,0.4);
+}
+
+.close {
+	margin-left: 7px;
+}
+
+.pointer { 
+	cursor: pointer;
+ }
+
+/* dark version */
+.dark #header {
+	background: #4d4d4d;
+}
+
+.dark #prompts {
+	background: #3d3d3d;
+}
+
+.dark #input {
+	background: #333333;
+	color: #333333;
+}
+
+.dark#app {
+	color: rgba(255,255,255,0.8);	
+}
+
+::-webkit-scrollbar {
+    width: 8px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.15);
+    border-radius: 100px;
+}
+
+.char-count {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 25px;
+	/*padding: 5px;*/
+	/*padding-left: 10px;*/
+	/*padding-right: 10px;*/
+	/*padding-right: 55px;*/
+	font-size: 20px;
+	opacity: 0.6;
+	/*background: white;*/
+}
+
+.dark .char-count {
+	color: rgb(165, 165, 165);
+	/*background: rgba(255,255,255,0.1)*/
+}
