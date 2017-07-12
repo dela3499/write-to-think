@@ -42,7 +42,12 @@
       // Update on localstorage change
       window.addEventListener("storage", function (e) {
         if (e.key == "write-to-think") {
+          
+          // Update model
           app.ports.setText.send(e.newValue)
+          
+          // Update textarea state
+          document.getElementById('textarea').value = e.newValue;
         }
       })
 

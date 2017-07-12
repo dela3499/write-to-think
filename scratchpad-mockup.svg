@@ -120,9 +120,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.39350295"
-     inkscape:cx="-237.84341"
-     inkscape:cy="-23014.739"
+     inkscape:zoom="0.45069318"
+     inkscape:cx="-346.56482"
+     inkscape:cy="-22923.768"
      inkscape:document-units="px"
      inkscape:current-layer="g4251-9-8-7-5-9"
      showgrid="false"
@@ -3116,38 +3116,26 @@
       </g>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:37.53266144px;line-height:200%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         x="4681.0327"
-         y="11660.731"
-         id="text3376-3-9-2-3-6-3-7-3-7-9-1-4"
-         sodipodi:linespacing="200%"><tspan
-           sodipodi:role="line"
-           id="tspan3378-6-1-7-6-8-9-4-5-5-4-3-8"
-           x="4681.0327"
-           y="11660.731"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:'roboto Ultra-Light';fill:#cccccc;">log out</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:37.53266144px;line-height:200%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-         x="4068.4111"
+         style="font-style:normal;font-weight:normal;font-size:37.53266144px;line-height:200%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="4382.8394"
          y="11663.304"
          id="text3376-6-8-4-5-2-9-14-8-3-0-0"
          sodipodi:linespacing="200%"><tspan
            sodipodi:role="line"
            id="tspan3378-2-4-9-0-9-7-6-9-6-6-0"
-           x="4068.4111"
+           x="4382.8394"
            y="11663.304"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:'roboto Ultra-Light';fill:#cccccc;">timers  5  15  30</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:'roboto Ultra-Light';fill:#cccccc">timers  5  15  30</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:37.53266144px;line-height:200%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="4408.917"
+         x="4723.3457"
          y="11660.371"
          id="text3376-3-9-5-2-5-8-4-9-4-8-4-1"
          sodipodi:linespacing="200%"><tspan
            sodipodi:role="line"
            id="tspan3378-6-1-0-0-6-5-0-2-7-5-4-6"
-           x="4408.917"
+           x="4723.3457"
            y="11660.371"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:'roboto Ultra-Light';fill:#cccccc">light theme</tspan></text>
       <text
@@ -5088,6 +5076,11 @@
            x="3250.4749"
            y="11815.994"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:'roboto Ultra-Light';fill:#999999">state-3  5w+h  80/20  easy  absurd  future  stream pscd  dialogue  upshot</tspan></text>
+      <path
+         style="fill:#3d3d3d;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.87340128px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 3893.8147,11668.606 c 3.47,-13.279 21.7466,-13.468 33.227,-16.5 15.9131,-1.635 31.6867,-6.406 46.2201,-13.077 29.3316,0.631 58.6709,0.729 88.0056,1.157 3.8123,12.236 20.2409,17.443 33.4527,15.585 33.6381,0.394 67.2761,0.789 100.9142,1.184 12.5076,-9.332 22.9555,-28.524 40.4771,-25.459 10.4936,-2.757 21.0396,-2.152 31.7547,-1.909 10.031,0.118 20.062,0.235 30.093,0.353 7.2352,10.195 9.0066,23.938 23.4335,26.537 5.6899,1.5 10.3286,5.777 13.025,10.788"
+         id="path5884"
+         inkscape:connector-curvature="0" />
     </g>
     <g
        transform="translate(-4143.4522,2572.1335)"
