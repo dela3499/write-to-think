@@ -98,8 +98,6 @@ td:hover {
 	overflow-y: scroll;
 	padding-right: 0;
 	padding-left: 0;
-	/*margin-right: 0;*/
-	/*overflow: auto;*/
 }
 
 textarea {
@@ -118,6 +116,7 @@ textarea {
 	padding-left: 0;
 	box-sizing: border-box;
 	overflow-y:scroll;
+	padding-left: 01px;
 }
 
 .dark textarea {
@@ -153,7 +152,6 @@ table td {
 	padding-bottom: 10px;
 	opacity: 0.7;
 	cursor: pointer;
-	/*padding: 0;*/
 }
 
 table td:first-of-type {
