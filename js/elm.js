@@ -9152,7 +9152,7 @@ var _user$project$Main$viewHeader = function (model) {
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('write to think'),
+							_0: _elm_lang$html$Html$text('thoughtwriter'),
 							_1: {ctor: '[]'}
 						}),
 					_1: {

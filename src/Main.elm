@@ -163,7 +163,7 @@ viewHeader model =
             [ id "header" ]
             [ div
                 [ class "container" ]
-                [ div [ class "site-title" ] [ text "write to think" ]
+                [ div [ class "site-title" ] [ text "thoughtwriter" ]
                 , div [ class "float-right" ]
                     [ timerSection
                     , themeToggle
