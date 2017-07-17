@@ -1,71 +1,75 @@
+<!DOCTYPE html>
 <html>
 
 	<head>
     <title>thoughtwriter</title>
+    <link rel="shortcut icon" href="icon.png"/>
 		<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/font-awesome.min.css"></link>
-    <link rel="stylesheet" href="css/style.css"></link>
+    <link rel="stylesheet" href="css/home.css"></link>
     <link rel="stylesheet" href="css/animate.css"></link>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-    <script src="js/elm.js"></script>
+    
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-102595791-1', 'auto');
+      ga('create', 'UA-102662893-1', 'auto');
       ga('send', 'pageview');
+
     </script>    
-    
+
   </head>     
 
+  <body>
+    <div id="header">
+      <div id="site-title">thoughtwriter</div>
+      <div id="subtitle">a digital whiteboard for your thoughts</div>
+      <div id="button-wrapper">
+        <a id="start-button" href="/whiteboard.html">start whiteboarding</a>
+      </div>
+      <div id="mobile-message">
+        Try it when you get to a bigger screen! <i class="fa fa-smile-o"></i>
+      </div>
 
-  
+    </div>
+    <div id="links">
+      <div id="video1" class="video">
+        <iframe width="100%" height="350px" src="https://www.youtube.com/embed/6UlwqX8rg0E?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div id="video2" class="video">
+        <iframe width="100%" height="175px" src="https://www.youtube.com/embed/6UlwqX8rg0E?ecver=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div id='newsletter-signup'>
 
-  <body>      
-		<script>
+        <!-- <script src="//load.sumome.com/" data-sumo-site-id="047d1e112916ef11acb0aeee5eed2679c7583a4fd1ed701b38ad4bf7e217578c" async="async"></script>         -->
+       
+      </div>
+      <div id="twitter1" class="twitter">
+        I'm Carlos, say hello on <a target="_blank" href="https://twitter.com/dela3499">Twitter</a>!
+      </div>
 
-      function readLocalStorage() {
-        var local = localStorage.getItem('write-to-think')
-        if (local) {
-          return local;
-        } else {
-          return ""
-        }
-      }
+    </div>
+    <div id="text">
+      <h1>the problem</h1>
+      <p>You have lots of notes, with lots of good ideas, but you ignore them. There's just too much clutter to sort through. You're adding to the clutter everyday.</p>
+      
+      <h1>the solution</h1>
+      <p>Stop writing notes. Use a digital whiteboard instead. Just fill up the board with ideas, find a good solution, then clear the board.</p>
+      
+      <h1>the result</h1>
+      <p>No new notes. Just a whiteboard for thinking, and a short list of your best ideas (which can be reviewed in seconds).</p>
+    </div>
 
-  		// Embed Elm app
-      var app = Elm.Main.fullscreen(readLocalStorage());
-
-      // Set focus
-      setTimeout(function () {
-        document.getElementById("textarea").focus();
-      }, 100)
-
-      // Save on change
-      app.ports.setLocalStorage.subscribe(function(model) {
-        localStorage.setItem("write-to-think", model)
-      })
-
-      // Update on localstorage change
-      window.addEventListener("storage", function (e) {
-        if (e.key == "write-to-think") {
-          
-          // Update model
-          app.ports.setText.send(e.newValue)
-          
-          // Update textarea state
-          document.getElementById('textarea').value = e.newValue;
-        }
-      })
-
-
-		</script>
+    <div id="twitter2" class="twitter">
+        I'm Carlos, say hello on <a target="_blank" href="https://twitter.com/dela3499">Twitter</a>!
+      </div>
+		
 	</body>
 
 </html>

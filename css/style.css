@@ -3,6 +3,11 @@ body {
 	background: rgb(51,51,51);
 }
 
+a, a:link, a:visited, a:focus, a:hover, a:active {
+  color: inherit !important; /* blue colors for links too */
+  text-decoration: inherit !important; /* no underline */
+}
+
 .container {
 	max-width: 850px;
 	margin: 0 auto;
@@ -46,7 +51,6 @@ body {
 
 .site-title {
 	font-weight: bold;
-	opacity: 1;
 	float: left;
 }
 
@@ -251,3 +255,13 @@ table td:first-of-type {
 	color: rgb(165, 165, 165);
 	/*background: rgba(255,255,255,0.1)*/
 }
+
+/*#mobile-blocker {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: white;
+	z-index: 10;
+}*/

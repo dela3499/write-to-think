@@ -35,7 +35,7 @@ subscriptions model =
 
 
 init string =
-    ( { dark = True
+    ( { dark = False
       , promptState = AllTitles
       , text = string
       , time = Nothing
@@ -163,7 +163,11 @@ viewHeader model =
             [ id "header" ]
             [ div
                 [ class "container" ]
-                [ div [ class "site-title" ] [ text "thoughtwriter" ]
+                [ a
+                    [ class "site-title"
+                    , href "/"
+                    ]
+                    [ text "thoughtwriter" ]
                 , div [ class "float-right" ]
                     [ timerSection
                     , themeToggle

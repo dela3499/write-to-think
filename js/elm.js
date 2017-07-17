@@ -9144,11 +9144,15 @@ var _user$project$Main$viewHeader = function (model) {
 				{
 					ctor: '::',
 					_0: A2(
-						_elm_lang$html$Html$div,
+						_elm_lang$html$Html$a,
 						{
 							ctor: '::',
 							_0: _elm_lang$html$Html_Attributes$class('site-title'),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('/'),
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
@@ -9184,7 +9188,7 @@ var _user$project$Main$AllTitles = {ctor: 'AllTitles'};
 var _user$project$Main$init = function (string) {
 	return {
 		ctor: '_Tuple2',
-		_0: {dark: true, promptState: _user$project$Main$AllTitles, text: string, time: _elm_lang$core$Maybe$Nothing, alarm: _elm_lang$core$Maybe$Nothing},
+		_0: {dark: false, promptState: _user$project$Main$AllTitles, text: string, time: _elm_lang$core$Maybe$Nothing, alarm: _elm_lang$core$Maybe$Nothing},
 		_1: A2(_elm_lang$core$Task$perform, _user$project$Main$Tick, _elm_lang$core$Time$now)
 	};
 };

@@ -1,0 +1,196 @@
+body {
+	margin: 0 auto;
+	background: #f3f3f3;
+	font-family: Roboto;
+	max-width: 1250px;
+	color: #3F3F3F;
+	font-size: 18px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+#header {
+	width: 100%;
+	text-align: center;
+}
+
+#header > * {
+	text-align: center;
+}
+
+#site-title {
+	padding-top: 80px;
+	padding-bottom: 5px;
+	font-size: 70px;
+	font-weight: bold;
+}
+
+#subtitle {
+	font-size: 25px;
+	letter-spacing: 0.4px;
+	font-weight: 300;
+}
+
+#button-wrapper {
+	display: block;
+	padding-top: 70px;
+	padding-bottom: 90px;
+}
+
+#start-button { 
+	color: #f3f3f3;
+	background: #333333;
+	padding: 15px 20px;
+	font-weight: bold;
+}
+
+#start-button:hover {
+	background: green;
+}
+
+a#start-button  {
+	color: #f3f3f3 !important;
+	text-decoration: inherit;
+	width: 100%;
+}
+
+#mobile-message {
+	display: none;
+}
+
+#links, #text {
+	float: left;
+	width: calc(50% - 30px);
+}
+
+#text {
+	box-sizing: border-box;
+	background: #e6e6e6;
+	padding: 50px;
+	margin-left: 60px;
+}
+
+h1, p{
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 1.2em;
+	padding-bottom: 10px;
+}
+
+p {
+	padding-bottom: 40px;
+	line-height: 1.5em;
+}
+
+p:last-of-type {
+	padding-bottom: 0;
+}
+
+.video { 
+	width:100%
+}
+
+#video2 {
+	display: none;
+}
+
+form { 
+	background: #f3f3f3;
+	box-sizing: border-box;
+}
+
+.twitter {
+	text-align: center;
+	padding: 70px;
+}
+
+.twitter a  {
+	color: green !important;
+}
+
+#twitter2 {
+	display: none;
+}
+
+
+@media (max-width: 600px) {
+	body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	#site-title {
+		padding-top: 40px;
+		font-size: 40px;
+		padding-bottom: 20px;
+	}
+
+	#subtitle {
+		font-size: 22px;
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	#button-wrapper {
+		display: none;
+	}
+
+	#mobile-message {
+		display: block;
+		padding: 40px 0px;
+		/*background: grey;*/
+	}
+
+	#video1 {
+		display: none;
+	}	
+
+	#video2 {
+		display: block;
+	}
+
+	#text {
+		padding: 0;
+		background: none;
+		/*margin-top: 50px !important;*/
+	}
+
+	h1 {
+		font-size: 25px;
+		/*text-align: center;*/
+		/*padding-bottom: 25px;*/
+	}
+
+	.twitter {
+		padding: 0;
+	}
+
+}
+
+
+@media (max-width: 1000px) {
+	#links, #text {
+		clear: left;
+		width: 100%;
+		/*background: red;*/
+	}
+
+	#text {
+		margin-top: 50px;
+		margin-left: 0;
+		margin-bottom: 80px;
+	}
+
+	#twitter1 {
+		display: none;
+	}
+
+	#twitter2 {
+		margin-bottom: 80px;
+		display: block;
+	}
+}
